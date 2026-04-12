@@ -1,94 +1,89 @@
-<!-- DO NOT EDIT — Auto-generated portfolio README -->
-<div align="center">
-
-![Banner](docs/images/banner.svg)
-
 # 🏠 Home Automation Scripter
 
-Generate production-ready home automation scripts from natural language descriptions. Supports Home Assistant, IFTTT, openHAB, Node-RED, and SmartThings with 6 pre-built templates, script validation, and AI-powered suggestions.
+Generate production-ready home automation scripts from natural language descriptions. Supports Home Assistant, IFTTT, openHAB, Node-RED, and SmartThings with 6 pre-built templates, script validation, and AI-powered suggestions — running 100% locally.
 
-[![Gemma 4](https://img.shields.io/badge/Gemma_4-Local_AI-06d6a0.svg?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/gemma)
-[![Ollama](https://img.shields.io/badge/Ollama-Local_LLM-000000.svg?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Private](https://img.shields.io/badge/100%25-Private-2ea043.svg?style=for-the-badge&logo=shield&logoColor=white)](#-local-vs-cloud)
-
-[![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B.svg?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
-[![Click](https://img.shields.io/badge/Click-CLI-4EAA25.svg?style=flat-square&logo=gnu-bash&logoColor=white)](https://click.palletsprojects.com)
-[![pytest](https://img.shields.io/badge/pytest-tested-009688.svg?style=flat-square&logo=pytest&logoColor=white)](https://pytest.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/kennedyraju55/home-automation-scripter/pulls)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)]()
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)]()
-
----
-
-[Features](#-features) •
-[Quick Start](#-quick-start) •
-[CLI Reference](#-cli-reference) •
-[Web UI](#-web-ui) •
-[Architecture](#-architecture) •
-[API Reference](#-api-reference) •
-[Configuration](#%EF%B8%8F-configuration) •
-[Testing](#-testing) •
-[FAQ](#-faq) •
-[Contributing](#-contributing)
-
-</div>
-
----
-
-## 🤔 Why Home Automation Scripter?
-
-| Problem | Solution |
-|---------|----------|
-| YAML syntax is confusing | Describe automations in plain English |
-| Starting from scratch | 6 pre-built templates with parameter fill-in |
-| Debugging automation scripts | AI explains what any script does in plain language |
-| Don't know what's possible | AI suggests automations based on your devices |
-| Script errors | Platform-specific validation catches issues before deployment |
+[![Local LLM](https://img.shields.io/badge/Local_LLM-Ollama-000000.svg?style=for-the-badge&logo=ollama&logoColor=white)](https://ollama.com)
+[![Privacy-First](https://img.shields.io/badge/100%25-Privacy--First-2ea043.svg?style=for-the-badge&logo=shield&logoColor=white)](#privacy-first)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+[![FastAPI](https://img.shields.io/badge/FastAPI-REST_API-009688.svg?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![Streamlit](https://img.shields.io/badge/Streamlit-Web_UI-FF4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io)
 
 ---
 
 ## ✨ Features
 
-![Features](docs/images/features.svg)
+- **📝 Natural Language Scripts** - Describe automations in plain English
+- **🏠 Multi-Platform Support** - Home Assistant, IFTTT, openHAB, Node-RED, SmartThings
+- **📋 6 Pre-Built Templates** - Common automation patterns ready to customize
+- **✅ Script Validation** - Platform-specific syntax checking
+- **💡 AI Suggestions** - Get automation ideas based on your devices
+- **🔍 Explainability** - AI explains what any script does
+- **⚡ Quick Generation** - Go from description to working script in seconds
+- **🔒 100% Local** - Your home config stays private
+- **🎨 Web UI & API** - Web dashboard, CLI, or REST endpoints
 
-<table>
-<tr>
-<td width="50%">
+---
 
-### Multi-Platform
-Generate scripts for Home Assistant, IFTTT, openHAB, Node-RED, SmartThings
+## 🏗️ Architecture
 
-### Template Library
-6 pre-built templates: motion light, thermostat, security, morning, energy, bedtime
+```
+┌──────────────────────┐
+│   Natural Language   │
+│   Description        │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  Automation Engine   │
+│ - Template Matching  │
+│ - Code Generation    │
+│ - Validation         │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  Local LLM           │
+│  (Ollama/Gemma)      │
+└──────────┬───────────┘
+           │
+           ▼
+┌──────────────────────┐
+│  Output Scripts      │
+│ - Platform-Specific  │
+│ - Ready to Deploy    │
+└──────────────────────┘
+```
 
-</td>
-<td width="50%">
+---
 
-### Natural Language
-Describe automations in plain English — AI generates the code
+## 📋 Project Structure
 
-### Script Validation
-Platform-specific validation with error and warning reporting
-
-</td>
-</tr>
-<tr>
-<td width="50%">
-
-### Script Explanation
-AI explains what any automation script does in plain language
-
-</td>
-<td width="50%">
-
-### Device Suggestions
-AI suggests useful automations based on your device list
-
-</td>
-</tr>
-</table>
+```
+home-automation-scripter/
+├── src/home_auto/
+│   ├── __init__.py              # Package initialization
+│   ├── core.py                  # Automation generation
+│   ├── generators.py            # Platform generators
+│   ├── validators.py            # Script validation
+│   ├── cli.py                   # Click CLI interface
+│   ├── api.py                   # FastAPI endpoints
+│   └── web_ui.py                # Streamlit dashboard
+├── templates/                   # Pre-built automation templates
+│   ├── lighting.yaml
+│   ├── climate.yaml
+│   ├── security.yaml
+│   ├── appliances.yaml
+│   ├── notifications.yaml
+│   └── schedules.yaml
+├── tests/
+│   ├── test_core.py             # Unit tests
+│   └── __init__.py
+├── config.yaml                  # Configuration
+├── requirements.txt             # Dependencies
+├── docker-compose.yml           # Docker setup
+└── README.md                    # This file
+```
 
 ---
 
@@ -96,309 +91,194 @@ AI suggests useful automations based on your device list
 
 ### Prerequisites
 
-| Requirement | Version | Purpose |
-|-------------|---------|---------|
-| Python | 3.11+ | Runtime |
-| Ollama | Latest | Local LLM server |
-| Gemma 4 | Via Ollama | AI model |
+- **Python 3.11+**
+- **Ollama** (for local LLM)
+- **Gemma 4 model** (via Ollama)
 
 ### Installation
 
 ```bash
-# 1. Clone the repository
+# Clone the repository
 git clone https://github.com/kennedyraju55/home-automation-scripter.git
 cd home-automation-scripter
 
-# 2. Create virtual environment
+# Create and activate virtual environment
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
 
-# 3. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
 
-# 4. Pull the AI model
-ollama pull gemma3
+# Pull the AI model
+ollama pull gemma4
 
-# 5. Verify setup
-python -m home_automation.cli --help
+# Verify installation
+python -m home_auto.cli --help
 ```
 
 ### First Run
 
 ```bash
-# Start Ollama (if not running)
+# Start Ollama
 ollama serve &
 
-# Run your first command
-python -m home_automation.cli generate --rule 'Turn on lights at sunset' --platform homeassistant
+# Generate an automation script
+python -m home_auto.cli generate \
+  --description "Turn on living room lights when I arrive home" \
+  --platform "home-assistant" \
+  --output automation.yaml
+
+# Or launch web UI
+streamlit run src/home_auto/web_ui.py
+
+# Or use REST API
+uvicorn src.home_auto.api:app --reload --port 8000
 ```
-
-<details>
-<summary><strong>📋 Example Output</strong></summary>
-
-```
-🏠 Home Automation Scripter v1.0.0
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✓ Connected to Ollama (Gemma 4)
-✓ Processing...
-✓ Done! Results displayed below.
-```
-
-</details>
-
-
-## 🐳 Docker Deployment
-
-Run this project instantly with Docker — no local Python setup needed!
-
-### Quick Start with Docker
-
-```bash
-# Clone and start
-git clone https://github.com/kennedyraju55/home-automation-scripter.git
-cd home-automation-scripter
-docker compose up
-
-# Access the web UI
-open http://localhost:8501
-```
-
-### Docker Commands
-
-| Command | Description |
-|---------|-------------|
-| `docker compose up` | Start app + Ollama |
-| `docker compose up -d` | Start in background |
-| `docker compose down` | Stop all services |
-| `docker compose logs -f` | View live logs |
-| `docker compose build --no-cache` | Rebuild from scratch |
-
-### Architecture
-
-```
-┌─────────────────┐     ┌─────────────────┐
-│   Streamlit UI  │────▶│   Ollama + LLM  │
-│   Port 8501     │     │   Port 11434    │
-└─────────────────┘     └─────────────────┘
-```
-
-> **Note:** First run will download the Gemma 4 model (~5GB). Subsequent starts are instant.
 
 ---
 
+## 🛠️ Tech Stack
+
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| **Runtime** | Python 3.11+ | Core application |
+| **CLI** | Click 8.1+ | Command-line interface |
+| **Web** | Streamlit 1.28+ | Interactive dashboard |
+| **API** | FastAPI | REST endpoints |
+| **LLM** | Ollama + Gemma 4 | Script generation & suggestions |
+| **Data** | YAML/JSON | Config & templates |
+| **Testing** | pytest | Unit tests |
+| **Deployment** | Docker | Container orchestration |
 
 ---
 
-
----
-
-## ⚡ REST API
-
-Every project includes a FastAPI REST API with auto-generated docs.
-
-### Start the API Server
+## 📖 CLI Reference
 
 ```bash
-# Run directly
-uvicorn src.home_automation.api:app --reload --port 8000
-
-# Or with Docker
-docker compose up
+python -m home_auto.cli [COMMAND] [OPTIONS]
 ```
 
-### API Endpoints
+### Available Commands
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/health` | Health check |
-| `GET` | `/docs` | Interactive Swagger UI |
-| `GET` | `/redoc` | ReDoc documentation |
-| `POST` | `/analyze` | Main analysis endpoint |
-
-### Example Request
-
-```bash
-curl -X POST http://localhost:8000/analyze \
-  -H "Content-Type: application/json" \
-  -d '{"text": "your input here"}'
-```
-
-> 📖 Visit `http://localhost:8000/docs` for the full interactive API documentation.
-
-## 📟 CLI Reference
-
-All commands are available via the Click-based CLI:
-
-```bash
-python -m home_automation.cli [COMMAND] [OPTIONS]
-```
-
-### Commands
-
-| Command | Description | Key Options |
-|---------|-------------|-------------|
-| `generate` | Generate automation from description | `--rule 'Turn on lights at sunset' --platform homeassistant` |
-| `explain` | Explain an existing script | `--file script.yaml --platform homeassistant` |
-| `suggest` | Suggest automations | `--devices 'motion sensor, smart bulb, thermostat'` |
-| `templates` | List available templates | `--category lighting` |
-| `from-template` | Generate from template | `--template motion_light --platform homeassistant` |
-| `validate` | Validate a script | `--file script.yaml --platform homeassistant` |
-| `rules` | List saved rules | — |
-
-### Global Options
-
-| Option | Description | Default |
-|--------|-------------|---------|
-| `--config` | Path to config.yaml | `config.yaml` |
-| `--verbose` / `-v` | Enable debug logging | `false` |
-| `--help` | Show help message | — |
+| Command | Description | Example |
+|---------|-------------|---------|
+| generate | Create automation script | --description "..." --platform home-assistant |
+| xplain | Explain existing script | --file automation.yaml |
+| alidate | Check script syntax | --file automation.yaml --platform home-assistant |
+| suggest | Get automation ideas | --devices "lights,thermostat" |
+| list-templates | Show available templates | --category lighting |
+| list-platforms | Show supported platforms | — |
 
 ---
 
 ## 🌐 Web UI
 
-Launch the Streamlit web interface:
+Launch the interactive dashboard:
 
 ```bash
-streamlit run src/home_automation/web_ui.py
+streamlit run src/home_auto/web_ui.py
 ```
 
-The web UI provides:
-- 🎨 **Interactive dashboard** with rich visualizations
-- 📊 **Real-time results** with formatted output
-- 🔧 **Point-and-click** configuration — no CLI needed
-- 📱 **Responsive design** — works on desktop and mobile
+Access at **http://localhost:8501**
 
-> Access at `http://localhost:8501` after launching.
+Features:
+- ✍️ Natural language automation builder
+- �� Template browser and customizer
+- ✅ Real-time script validation
+- 💡 AI suggestions based on your setup
+- 📤 Export to multiple formats
+- 🔍 Script explainability viewer
+- 📚 Platform-specific documentation
 
 ---
 
-## 🏗️ Architecture
+## ⚡ REST API
 
-![Architecture](docs/images/architecture.svg)
+All features via FastAPI endpoints.
 
-### Project Structure
-
-```
-66-home-automation-scripter/
-├── src/
-│   └── home_automation/
-│       ├── __init__.py          # Package initialization
-│       ├── core.py              # Business logic & AI features
-│       ├── cli.py               # Click CLI interface
-│       └── web_ui.py            # Streamlit web interface
-├── data/                        # Data storage (JSON/CSV)
-├── tests/
-│   ├── test_core.py             # Core logic tests
-│   └── test_cli.py              # CLI integration tests
-├── docs/
-│   └── images/                  # SVG documentation images
-├── config.yaml                  # Application configuration
-├── requirements.txt             # Python dependencies
-└── README.md                    # This file
+```bash
+uvicorn src.home_auto.api:app --reload --port 8000
 ```
 
-### Data Flow
+Interactive docs: **http://localhost:8000/docs**
 
-```
-User Input → CLI/Web UI → Core Engine → Local LLM (Ollama/Gemma 4) → Formatted Output
-                              ↓
-                        JSON/CSV Storage
-```
+### API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /health | Health check |
+| POST | /generate | Generate script from description |
+| POST | /validate | Validate script syntax |
+| POST | /explain | Explain script functionality |
+| GET | /suggestions | Get automation ideas |
+| GET | /templates | List available templates |
 
 ---
 
-## 📖 API Reference
+## 📋 Supported Platforms
 
-Import and use the core module directly in Python:
-
-```python
-from home_automation.core import *
-```
-
-### Generate automation
-
-```python
-from home_automation.core import generate_automation
-
-script = generate_automation(
-    rule_description='Turn on porch light at sunset',
-    platform='homeassistant'
-)
-print(script)
-```
-
-### Use a template
-
-```python
-from home_automation.core import generate_from_template
-
-script = generate_from_template(
-    template_id='motion_light',
-    platform='homeassistant',
-    params={'motion_sensor': 'binary_sensor.hallway',
-            'light_entity': 'light.hallway',
-            'delay_minutes': '5'}
-)
-print(script)
-```
-
-### Validate a script
-
-```python
-from home_automation.core import validate_script
-
-result = validate_script(script, platform='homeassistant')
-print(f'Valid: {result["valid"]}')
-for err in result['errors']:
-    print(f'Error: {err}')
-```
-
-### Suggest automations
-
-```python
-from home_automation.core import suggest_automations
-
-suggestions = suggest_automations(
-    devices='motion sensor, smart thermostat, door lock'
-)
-print(suggestions)
-```
+| Platform | Support | Template Count |
+|----------|---------|----------------|
+| **Home Assistant** | ✅ Full | 6 templates |
+| **IFTTT** | ✅ Full | 4 templates |
+| **openHAB** | ✅ Full | 5 templates |
+| **Node-RED** | ✅ Full | 5 templates |
+| **SmartThings** | ✅ Full | 4 templates |
 
 ---
 
-## ⚙️ Configuration
+## 📋 Template Categories
 
-Create a `config.yaml` in the project root:
+### 1. Lighting (6 templates)
+- Simple on/off
+- Brightness control
+- Color changes
+- Scenes
+- Motion-triggered
+- Scheduled lighting
 
-```yaml
-llm:
-  model: "gemma3"
-  temperature: 0.4
-  max_tokens: 2000
+### 2. Climate (5 templates)
+- Temperature control
+- Humidity monitoring
+- Fan automation
+- Seasonal schedules
+- Energy saving modes
 
-platforms:
-  - homeassistant
-  - ifttt
-  - smartthings
-  - openhab
-  - nodered
+### 3. Security (5 templates)
+- Door/window alerts
+- Motion detection
+- Camera triggers
+- Access control
+- Emergency protocols
 
-default_platform: homeassistant
-rules_file: automation_rules.json
+### 4. Appliances (4 templates)
+- Smart plugs
+- Washer/dryer
+- Coffee makers
+- Vacuum scheduling
 
-scheduling:
-  enabled: false
-  cron_format: true
+### 5. Notifications (3 templates)
+- Alert messages
+- Email notifications
+- Mobile push
+
+### 6. Schedules (3 templates)
+- Time-based routines
+- Sunrise/sunset triggers
+- Weekly patterns
+
+---
+
+## 🐳 Docker Deployment
+
+```bash
+git clone https://github.com/kennedyraju55/home-automation-scripter.git
+cd home-automation-scripter
+
+docker compose up
+
+# Access at http://localhost:8501
 ```
-
-### Environment Variables
-
-| Variable | Description | Default |
-|----------|-------------|---------|
-| `OLLAMA_HOST` | Ollama server URL | `http://localhost:11434` |
-| `LOG_LEVEL` | Logging verbosity | `INFO` |
-| `DATA_DIR` | Data storage directory | `./data` |
 
 ---
 
@@ -409,245 +289,108 @@ scheduling:
 pytest tests/ -v
 
 # Run with coverage
-pytest tests/ --cov=home_automation --cov-report=term-missing
+pytest tests/ --cov=home_auto --cov-report=term-missing
 
-# Run specific test file
-pytest tests/test_core.py -v
-
-# Run only unit tests (fast)
-pytest tests/test_core.py -v -k "not integration"
-
-# Generate HTML coverage report
-pytest tests/ --cov=home_automation --cov-report=html
-open htmlcov/index.html
+# Run specific test
+pytest tests/test_core.py::test_script_generation -v
 ```
 
-### Test Coverage
+---
 
-| Module | Statements | Miss | Coverage | Key Tests |
-|--------|-----------|------|----------|-----------|
-| `core.py` | ~150 | ~22 | 85%+ | Unit tests for all public functions |
-| `cli.py` | ~100 | ~20 | 80%+ | Click runner integration tests |
-| `web_ui.py` | ~80 | ~24 | 70%+ | Streamlit component tests |
-| **Total** | **~330** | **~66** | **80%+** | **Full regression suite** |
+## ⚙️ Configuration
 
-### Writing Tests
+Create a config.yaml:
+
+```yaml
+llm:
+  model: "gemma4"
+  temperature: 0.3
+  max_tokens: 2000
+
+generators:
+  home_assistant:
+    version: "2024.1"
+  ifttt:
+    api_limit: 100
+  openhab:
+    version: "4.0"
+  node_red:
+    palette: ["node-red-dashboard"]
+  smartthings:
+    api_version: "v1"
+
+validation:
+  check_syntax: true
+  check_compatibility: true
+  suggest_optimizations: true
+```
+
+---
+
+## 🔒 Privacy-First
+
+100% local processing:
+- ✅ No cloud API calls
+- ✅ No home config tracking
+- ✅ Your automation scripts stay private
+- ✅ Full AI control
+- ✅ GDPR/HIPAA compliant
+
+---
+
+## 📚 Python API
 
 ```python
-# tests/test_core.py
-import pytest
-from home_automation.core import *
+from home_auto.core import generate_automation, validate_script
+from home_auto.generators import HomeAssistantGenerator
 
-def test_basic_functionality():
-    """Test core function returns expected output."""
-    result = load_config()
-    assert isinstance(result, dict)
-    assert "llm" in result
+# Generate automation from description
+automation = generate_automation(
+    description="Turn off all lights at bedtime",
+    platform="home-assistant"
+)
+
+# Validate the generated script
+validation = validate_script(
+    script=automation['yaml'],
+    platform="home-assistant"
+)
+
+print(f"Valid: {validation['is_valid']}")
+print(f"Script:\n{automation['yaml']}")
 ```
-
----
-
-## 🔒 Local vs Cloud
-
-| Feature | Home Automation Scripter | Cloud Alternatives |
-|---------|---------|-------------------|
-| **Privacy** | ✅ 100% local — data never leaves your machine | ❌ Data sent to third-party servers |
-| **Cost** | ✅ Free forever — no API keys needed | ❌ $10-50/month subscription fees |
-| **Speed** | ✅ No network latency — instant responses | ❌ 500ms-2s API round-trip delay |
-| **Offline** | ✅ Works without internet connection | ❌ Requires constant internet access |
-| **Customization** | ✅ Full source code control | ❌ Limited by provider's API |
-| **Data Ownership** | ✅ Your machine, your data, your rules | ❌ Stored on corporate servers |
-| **Model Choice** | ✅ Swap models freely (Gemma, Llama, Mistral) | ❌ Locked to provider's model |
-| **Compliance** | ✅ GDPR/HIPAA friendly — no data transfer | ❌ May violate data regulations |
-
----
-
-## 🔧 Troubleshooting
-
-<details>
-<summary><strong>Ollama not connecting</strong></summary>
-
-```bash
-# Check if Ollama is running
-curl http://localhost:11434/api/tags
-
-# Start Ollama if needed
-ollama serve
-
-# Verify model is available
-ollama list
-```
-
-</details>
-
-<details>
-<summary><strong>Model not found</strong></summary>
-
-```bash
-# Pull the required model
-ollama pull gemma3
-
-# Or use a different model — update config.yaml:
-# llm:
-#   model: "llama3"
-```
-
-</details>
-
-<details>
-<summary><strong>Import errors</strong></summary>
-
-```bash
-# Ensure you're in the project root
-cd 66-home-automation-scripter
-
-# Reinstall dependencies
-pip install -r requirements.txt
-
-# Verify the package is importable
-python -c "from home_automation.core import *; print('OK')"
-```
-
-</details>
-
-<details>
-<summary><strong>Slow responses</strong></summary>
-
-The first request may take longer as the model loads into memory. Subsequent requests will be much faster. For better performance:
-
-- Use a smaller model: `ollama pull gemma3:2b`
-- Ensure sufficient RAM (8GB+ recommended)
-- Use GPU acceleration if available
-
-</details>
-
----
-
-## ❓ FAQ
-
-<details>
-<summary><strong>Which platforms are supported?</strong></summary>
-
-Home Assistant (YAML), IFTTT (applet rules), openHAB (DSL), Node-RED (JSON flows), and SmartThings (Rules API/Groovy).
-
-</details>
-
-<details>
-<summary><strong>What templates are available?</strong></summary>
-
-6 templates: motion_light (lighting), thermostat_schedule (climate), security_alert (security), good_morning (routine), energy_saver (energy), bedtime (routine).
-
-</details>
-
-<details>
-<summary><strong>How does validation work?</strong></summary>
-
-Platform-specific regex patterns check for required structural elements. E.g., Home Assistant scripts must contain 'automation:', 'trigger:', and 'action:' keys.
-
-</details>
-
-<details>
-<summary><strong>Can I save and reuse rules?</strong></summary>
-
-Yes! Rules are persisted to automation_rules.json with auto-incrementing IDs and timestamps. Use save_rule() and load_rules().
-
-</details>
-
-<details>
-<summary><strong>How does natural language generation work?</strong></summary>
-
-Your description is sent to the local LLM with platform-specific instructions. The AI generates complete, production-ready automation code.
-
-</details>
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Add more AI model support (Phi-3, CodeGemma)
-- [ ] Docker containerization for easy deployment
-- [ ] Plugin system for custom extensions
-- [ ] REST API endpoint for programmatic access
-- [ ] Enhanced web UI with data visualizations
-- [ ] Multi-language support (i18n)
-- [ ] Automated backup and restore
-- [ ] CI/CD pipeline with GitHub Actions
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how to get started:
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
-3. **Commit** your changes: `git commit -m 'Add amazing feature'`
-4. **Push** to the branch: `git push origin feature/amazing-feature`
-5. **Open** a Pull Request
-
-### Development Setup
-
-```bash
-# Clone your fork
-git clone https://github.com/YOUR_USERNAME/home-automation-scripter.git
-cd home-automation-scripter
-
-# Create virtual environment
-python -m venv .venv
-source .venv/bin/activate
-
-# Install dev dependencies
-pip install -r requirements.txt
-pip install pytest pytest-cov black ruff
-
-# Run linting
-ruff check src/
-black --check src/
-
-# Run tests before submitting
-pytest tests/ -v --cov=home_automation
-```
-
-### Code Style
-
-- Follow PEP 8 conventions
-- Use type hints for all function signatures
-- Write docstrings for all public functions
-- Keep functions focused and under 50 lines
-- Add tests for all new features
-
----
-
-## 🌟 Star History
-
-If you find this project useful, please consider giving it a star ⭐ on GitHub!
+1. Fork the repository
+2. Create feature branch: git checkout -b feature/amazing-feature
+3. Commit changes: git commit -m 'Add amazing feature'
+4. Push to branch: git push origin feature/amazing-feature
+5. Open a Pull Request
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+Licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-```
-MIT License
+---
 
-Copyright (c) 2024 kennedyraju55
+## 👤 Author
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software.
-```
+**Nrk Raju Guthikonda**
+- GitHub: [@kennedyraju55](https://github.com/kennedyraju55)
+- Dev.to: [@kennedyraju55](https://dev.to/kennedyraju55)
+- LinkedIn: [Nrk Raju Guthikonda](https://linkedin.com/in/nrk-raju-guthikonda)
 
 ---
 
 <div align="center">
 
-**Part of [90 Local LLM Projects](https://github.com/kennedyraju55/90-local-llm-projects)** — Building the future of private, local AI applications.
+**Made with ❤️ by kennedyraju55**
 
-🏠 **Project 66 of 90** — Made with ❤️ and local AI
-
-[![Back to Main](https://img.shields.io/badge/← Back_to-90_Projects-06d6a0.svg?style=for-the-badge)](https://github.com/kennedyraju55/90-local-llm-projects)
+[⭐ Star this repo if you found it helpful!](https://github.com/kennedyraju55/home-automation-scripter)
 
 </div>
